@@ -110,3 +110,7 @@ on boot
 on property:sys.boot_completed=1
     write /sys/module/memfusion/parameters/force_udelay 8500
 # BSP:modify Memory Fusion S666LNMA6-1219 by yifei.liu 20231204 end
+
+    # Set gesture touch permissions
+    chown system system /proc/gesture_function
+    chmod 0660 /proc/gesture_function

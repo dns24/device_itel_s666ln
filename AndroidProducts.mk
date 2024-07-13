@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_FULL-64-ARMV82.mk
+    $(LOCAL_DIR)/lineage_s666ln.mk
 
 COMMON_LUNCH_CHOICES := \
-    lineage_FULL-64-ARMV82-user \
-    lineage_FULL-64-ARMV82-userdebug \
-    lineage_FULL-64-ARMV82-eng
+    lineage_s666ln-user \
+    lineage_s666ln-userdebug \
+    lineage_s666ln-eng

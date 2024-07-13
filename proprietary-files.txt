@@ -1,4 +1,4 @@
-# Unpinned blobs from sys_tssi_64_armv82_itel-user 13 TP1A.220624.014 568468 release-keys
+# Unpinned blobs from sys_tssi_64_armv82_itel-user 13 TP1A.220624.014 607469 release-keys
 
 # Audio
 vendor/bin/hw/android.hardware.audio.service.mediatek
@@ -3976,7 +3976,6 @@ vendor/lib64/vendor.transsion.hardware.tranlogconfig@1.0.so
 vendor/lib64/vendor.transsion.hardware.trannet-V1-ndk_platform.so
 vendor/lib64/vendor.transsion.hardware.transtorage.storage@1.0.so
 vendor/lib64/vendor.transsion.performance.sched@1.0.so
-vendor/media/license.lic
 vendor/odm/etc/vintf/manifest_dsds.xml
 vendor/odm/etc/vintf/manifest_qsqs.xml
 vendor/odm/etc/vintf/manifest_ss.xml
