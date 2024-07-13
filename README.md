@@ -1,4 +1,4 @@
-# Android device tree for Itel  (FULL-64-ARMV82)
+# Android device tree for Itel RS4 (S666LN)
 
 ```
 #
