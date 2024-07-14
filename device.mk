@@ -257,7 +257,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
 # Add vendor log tags
-include $(LOCAL_PATH)/configs/vendor_log_tags.mk
+include $(LOCAL_PATH)/configs/props/vendor_log_tags.mk
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/itel/s666ln/s666ln-vendor.mk)
