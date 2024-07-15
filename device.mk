@@ -112,13 +112,13 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer@2.3-service \
-    android.hardware.memtrack-service.mediatek-mali
+    android.hardware.graphics.composer@2.3-service
+#    android.hardware.memtrack-service.mediatek-mali
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@4.0.vendor \
-    libdrm.vendor \
-    libutils-v32
+    libdrm.vendor
+#    libutils-v32
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -143,23 +143,22 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_ENFORCE_RRO_TARGETS := *
-PRODUCT_PACKAGES += \
-    FrameworksResOverlay \
-    MtkSettingsResOverlay \
-    WifiResOverlay
+#PRODUCT_PACKAGES += \
+#    FrameworksResOverlay \
+#    MtkSettingsResOverlay \
+#    WifiResOverlay
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Power
-PRODUCT_PACKAGES += \
-    android.hardware.power-service-mediatek \
-    android.hardware.power-V2-ndk_platform.vendor
+PRODUCT_PACKAGES += android.hardware.power-V2-ndk_platform.vendor
+#    android.hardware.power-service-mediatek
 
-PRODUCT_PACKAGES += \
-    vendor.mediatek.hardware.mtkpower@1.0.vendor \
-    vendor.mediatek.hardware.mtkpower@1.1.vendor \
-    vendor.mediatek.hardware.mtkpower@1.2.vendor
+#PRODUCT_PACKAGES += \
+#    vendor.mediatek.hardware.mtkpower@1.0.vendor \
+#    vendor.mediatek.hardware.mtkpower@1.1.vendor \
+#    vendor.mediatek.hardware.mtkpower@1.2.vendor
 
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/perf,$(TARGET_COPY_OUT_VENDOR)/etc)
@@ -257,7 +256,7 @@ PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/wifi/,$(TARGET_COPY_OUT_VENDOR)/etc/wifi)
 
 # Add vendor log tags
-include $(LOCAL_PATH)/configs/vendor_log_tags.mk
+include $(LOCAL_PATH)/configs/props/vendor_log_tags.mk
 
 # Inherit the proprietary files
 $(call inherit-product, vendor/itel/s666ln/s666ln-vendor.mk)
