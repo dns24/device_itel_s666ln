@@ -138,8 +138,6 @@ BOARD_HAS_MTK_HARDWARE := true
 # Properties
 TARGET_SYSTEM_PROP += $(CONFIGS_PATH)/props/system.prop
 TARGET_VENDOR_PROP += $(CONFIGS_PATH)/props/vendor.prop
-TARGET_PRODUCT_PROP += $(CONFIGS_PATH)/props/product.prop
-TARGET_SYSTEM_EXT_PROP += $(CONFIGS_PATH)/props/system_ext.prop
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6789
@@ -155,6 +153,12 @@ VENDOR_SECURITY_PATCH := 2024-02-05
 
 # SEPolicy
 include device/mediatek/sepolicy_vndr/SEPolicy.mk
+SELINUX_IGNORE_NEVERALLOWS := true
+
+# Touch
+SOONG_CONFIG_NAMESPACES += TRANSSION_TOUCH
+SOONG_CONFIG_TRANSSION_TOUCH := HIGH_TOUCH_POLLING_PATH
+SOONG_CONFIG_TRANSSION_TOUCH_HIGH_TOUCH_POLLING_PATH := /proc/game_state
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
@@ -185,6 +189,9 @@ DEVICE_MATRIX_FILE := $(CONFIGS_PATH)/vintf/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     $(CONFIGS_PATH)/vintf/framework_compatibility_matrix.xml \
     vendor/lineage/config/device_framework_matrix.xml
+
+# Workaround to make lineage's soong generator work
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
 # Wi-Fi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
