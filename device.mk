@@ -192,7 +192,7 @@ PRODUCT_PACKAGES += \
     init.insmod.sh \
     init.tran_mcf.sh \
     fstab.mt6789 \
-    fstab.mt6789_ramdisk \
+    fstab.mt6789.vendor_ramdisk \
     factory_init.connectivity.common.rc \
     factory_init.connectivity.rc \
     factory_init.project.rc \

@@ -33,6 +33,7 @@ BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_RAMDISK_USE_LZ4 := true
 BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
+BOARD_KERNEL_IMAGE_NAME := Image.gz
 BOARD_KERNEL_CMDLINE += bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
@@ -56,17 +57,19 @@ BUILD_BROKEN_USES_BUILD_COPY_HEADERS := true
 BUILD_BROKEN_VINTF_PRODUCT_COPY_FILES := true
 
 # Display
-TARGET_SCREEN_DENSITY := 320
+TARGET_SCREEN_DENSITY := 296
+
+# Kernel
+TARGET_NO_KERNEL_OVERRIDE := true
+TARGET_PREBUILT_KERNEL := $(KERNEL_PATH)/Image.gz
+TARGET_FORCE_PREBUILT_KERNEL := true
+LOCAL_KERNEL := $(KERNEL_PATH)/Image.gz
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel
 
 # DTB
 BOARD_PREBUILT_DTBOIMAGE := $(KERNEL_PATH)/dtbo.img
 BOARD_PREBUILT_DTBIMAGE_DIR := $(KERNEL_PATH)/dtb
-
-# Kernel
-TARGET_NO_KERNEL_OVERRIDE := true
-LOCAL_KERNEL := $(KERNEL_PATH)/Image.gz
-PRODUCT_COPY_FILES += \
-	$(LOCAL_KERNEL):kernel
 
 # Kernel modules
 BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(strip $(shell cat $(KERNEL_PATH)/ramdisk/modules.load))
@@ -127,6 +130,9 @@ TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
+# OTA assert
+TARGET_OTA_ASSERT_DEVICE := s666ln,itel-s666ln
+
 # Power
 TARGET_TAP_TO_WAKE_NODE := /proc/gesture_function
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
@@ -140,9 +146,10 @@ TARGET_SYSTEM_PROP += $(CONFIGS_PATH)/props/system.prop
 TARGET_VENDOR_PROP += $(CONFIGS_PATH)/props/vendor.prop
 
 # Recovery
+BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.mt6789
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
@@ -187,11 +194,7 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 DEVICE_MANIFEST_FILE := $(CONFIGS_PATH)/vintf/manifest.xml
 DEVICE_MATRIX_FILE := $(CONFIGS_PATH)/vintf/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(CONFIGS_PATH)/vintf/framework_compatibility_matrix.xml \
-    vendor/lineage/config/device_framework_matrix.xml
-
-# Workaround to make lineage's soong generator work
-TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
+    $(CONFIGS_PATH)/vintf/framework_compatibility_matrix.xml
 
 # Wi-Fi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -207,6 +210,9 @@ WIFI_DRIVER_STATE_ON := 1
 WIFI_DRIVER_STATE_OFF := 0
 WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
+
+# Workaround to make lineage's soong generator work
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)
 
 # Inherit the proprietary files
 include vendor/itel/s666ln/BoardConfigVendor.mk
