@@ -95,13 +95,15 @@ BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 67108864
 BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := mtk_dynamic_partitions
 
-BOARD_MTK_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext vendor product vendor_dlkm
+BOARD_MTK_DYNAMIC_PARTITIONS_PARTITION_LIST := odm_dlkm system system_ext vendor product vendor_dlkm
 BOARD_MTK_DYNAMIC_PARTITIONS_SIZE := 9122611200
 
 BOARD_EROFS_PCLUSTER_SIZE := 262144
 
 BOARD_USES_METADATA_PARTITION := true
+BOARD_USES_ODM_DLKIMAGE := true
 BOARD_USES_VENDOR_DLKMIMAGE := true
+BOARD_ODM_DLKMIMAGE_FILE_SYSTEM_TYPE := ext4
 
 # Make GApps installation possible
 ifneq ($(WITH_GMS),true)
@@ -125,13 +127,14 @@ endif
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 
+TARGET_COPY_OUT_ODM_DLKM := odm_dlkm
 TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 
 # OTA assert
-TARGET_OTA_ASSERT_DEVICE := s666ln,itel-s666ln
+TARGET_OTA_ASSERT_DEVICE := s666ln,Itel-S666LN,Itel-s666ln,itel-s666ln
 
 # Power
 TARGET_TAP_TO_WAKE_NODE := /proc/gesture_function
@@ -194,7 +197,8 @@ BOARD_AVB_VBMETA_VENDOR_ROLLBACK_INDEX_LOCATION := 3
 DEVICE_MANIFEST_FILE := $(CONFIGS_PATH)/vintf/manifest.xml
 DEVICE_MATRIX_FILE := $(CONFIGS_PATH)/vintf/compatibility_matrix.xml
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(CONFIGS_PATH)/vintf/framework_compatibility_matrix.xml
+    $(CONFIGS_PATH)/vintf/framework_compatibility_matrix.xml \
+	vendor/lineage/config/device_framework_matrix.xml
 
 # Wi-Fi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -212,7 +216,7 @@ WIFI_HIDL_UNIFIED_SUPPLICANT_SERVICE_RC_ENTRY := true
 WIFI_HIDL_FEATURE_DUAL_INTERFACE := true
 
 # Workaround to make lineage's soong generator work
-TARGET_KERNEL_SOURCE := $(KERNEL_PATH)
+TARGET_KERNEL_SOURCE := $(KERNEL_PATH)/kernel-headers
 
 # Inherit the proprietary files
 include vendor/itel/s666ln/BoardConfigVendor.mk
