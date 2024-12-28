@@ -8,22 +8,21 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common RisingOS stuff.
+# Inherit some common AlphaDroid stuff.
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
-# Riseup!
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    RisingChipset="Mediatek Helio G99" \
-    RisingMaintainer="attack_dns24"
-PRODUCT_NO_CAMERA := false
+# Alpha prop
+ALPHA_MAINTAINER := Wahid
 TARGET_ENABLE_BLUR := true
-TARGET_CORE_GMS := true
-TARGET_CORE_GMS_EXTRAS := true
-PRODUCT_PACKAGES += \
-    com.google.android.dialer.support
-WITH_GMS := true
+TARGET_USE_PIXEL_LAUNCHER := false
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
+# GApps
+TARGET_CORE_GAPPS := true
+WITH_GAPPS := true
 
 # Boot animation
+TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_SCREEN_HEIGHT := 1612
 TARGET_SCREEN_WIDTH := 720
 
@@ -40,7 +39,5 @@ PRODUCT_MODEL := itel S666LN
 PRODUCT_GMS_CLIENTID_BASE := android-transsion
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BuildDesc="sys_tssi_64_armv82_itel-user 13 TP1A.220624.014 607469 release-keys" \
-    BuildFingerprint=Itel/S666LN-OP/itel-S666LN:13/TP1A.220624.014/240513V1350:user/release-keys \
-    DeviceProduct=S666LN-OP \
-    DeviceName=itel-S666LN    
+    PRODUCT_NAME=S666LN-OP \
+    PRODUCT_DEVICE=itel-S666LN    
