@@ -55,6 +55,9 @@ fi
 
 function blob_fixup() {
     case "${1}" in
+        lib64/libem_support_jni.so)
+            "${PATCHELF}" --add-needed "libjni_shim.so" "${2}"
+            ;;
         vendor/lib*/hw/mt6789/vendor.mediatek.hardware.pq@2.15-impl.so|\
         vendor/bin/hw/vendor.mediatek.hardware.pq@2.2-service)
             "${PATCHELF}" --replace-needed "libbinder.so" "libbinder-v32.so" "${2}"

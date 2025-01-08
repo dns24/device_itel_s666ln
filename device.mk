@@ -145,8 +145,19 @@ PRODUCT_PACKAGES += \
 # Dynamic partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
+# Enable ADB for debugging purposes
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.secure=0 \
+    ro.adb.secure=0 \
+    ro.debuggable=1 \
+    persist.sys.usb.config=adb
+
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+
+# Engineering mode
+PRODUCT_PACKAGES += \
+    libjni_shim
 
 # FastbootD
 PRODUCT_PACKAGES += \
@@ -155,7 +166,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.S666LN
+    android.hardware.biometrics.fingerprint@2.1.vendor
 
 # Gatekeeper
 PRODUCT_PACKAGES += \
@@ -318,8 +329,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/libnfc-nxp_RF.conf
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-lineage
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-afterlife
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
@@ -454,7 +464,7 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     hardware/mediatek \
     hardware/mediatek/libmtkperf_client \
-    hardware/lineage/interfaces/power-libperfmgr \
+    hardware/afterlife/interfaces/power-libperfmgr \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/transsion

@@ -10,3 +10,8 @@ cc_library_shared {
     ],
     vendor: true
 }
+
+cc_library_shared {
+    name: "libjni_shim",
+    srcs: ["engineering_mode/libjni_shim.c"]
+}

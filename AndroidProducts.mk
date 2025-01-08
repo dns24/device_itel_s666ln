@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_S666LN.mk
+    $(LOCAL_DIR)/afterlife_S666LN.mk

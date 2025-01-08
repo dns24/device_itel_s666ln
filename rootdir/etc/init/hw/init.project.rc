@@ -107,7 +107,10 @@ on property:sys.boot_completed=1
 #SPD: modify cpu shares by bin.liu5 at 20240205 end
 
 #BSP add for swappiness watermark_scale_factor by xiayu.ye 20240416 start
-    write /proc/sys/vm/swappiness 180
+    write /dev/memcg/memory.swappiness 200
+    write /dev/memcg/system/memory.swappiness 200
+    write /dev/memcg/apps/memory.swappiness 200
+    write /proc/sys/vm/swappiness 200
     write /proc/sys/vm/watermark_scale_factor 64
     write /proc/sys/vm/extra_free_kbytes 37968
 #BSP add for swappiness watermark_scale_factor by xiayu.ye 20240416 end
