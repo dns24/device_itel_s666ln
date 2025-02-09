@@ -33,6 +33,9 @@ ro.charger.enable_suspend=true
 # Dalvik
 dalvik.vm.dex2oat64.enabled=true
 
+# Game FPS  Limit
+debug.graphics.game_default_frame_rate.disabled=true
+
 # IMS
 persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
