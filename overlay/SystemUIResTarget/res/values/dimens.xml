@@ -44,4 +44,5 @@
     <dimen name="rounded_corner_content_padding">10dp</dimen>
     <dimen name="status_bar_padding_end">5dp</dimen>
     <dimen name="status_bar_padding_start">16dp</dimen>
+    <dimen name="status_bar_padding_top">16.0dip</dimen>
 </resources>
