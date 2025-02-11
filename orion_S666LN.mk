@@ -16,7 +16,7 @@ TARGET_BOOT_ANIMATION_RES := 720
 
 # OrionOS flags
 ORION_MAINTAINER := attack_dns24
-ORION_MAINTAINER_LINK := t.me/attack_dns24
+ORION_MAINTAINER_LINK := https://t.me/attack_dns24
 ORION_GAPPS := true
 ORION_BUILD_GOOGLE_TELEPHONY := true
 TARGET_ENABLE_BLUR := false
