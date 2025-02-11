@@ -255,6 +255,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 # Include Moto Dolby
 $(call inherit-product, vendor/motorola-dolby/setup.mk)
 
+# Include Private keys
+-include vendor/orion-priv/keys/keys.mk
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/mtk-tpd.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/mtk-tpd.kl
