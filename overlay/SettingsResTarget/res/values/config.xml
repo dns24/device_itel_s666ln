@@ -21,12 +21,7 @@
      for different hardware and product builds.  Do not translate. -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- About device screen, build maintainer -->
-    <string name="build_device_url" translatable="false">https://t.me/attack_dns24</string>
-    <string name="build_maintainer_summary" translatable="false">attack_dns24</string>
-    <string name="build_maintainer_donate_url" translatable="false">https://linktr.ee/attack_dns24</string>
-    
-        <!-- Whether to show min refresh rate in display settings -->
+    <!-- Whether to show min refresh rate in display settings -->
     <bool name="config_show_min_refresh_rate_switch">true</bool>
 
     <!-- Whether to show peak refresh rate in display settings -->

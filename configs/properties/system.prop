@@ -1,3 +1,10 @@
+# About Phone
+ro.infinity.soc=Mediatek G99 Ultimate
+ro.infinity.battery=5000 mAh
+ro.infinity.display=720 x 1612, 120 Hz
+ro.infinity.camera=50 + 8MP
+ro.product.marketname=Itel RS4
+
 # AEE
 ro.vendor.have_aee_feature=1
 
@@ -77,7 +84,7 @@ debug.sf.earlyGl.sf.duration=27600000
 debug.sf.enable_gl_backpressure=0
 debug.sf.enable_transaction_tracing=false
 debug.sf.hwc.min.duration=23000000
-debug.sf.latch_unsignaled=true
+debug.sf.latch_unsignaled=1
 debug.sf.late.app.duration=20000000
 debug.sf.late.sf.duration=27600000
 debug.sf.predict_hwc_composition_strategy=0

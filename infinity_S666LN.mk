@@ -8,18 +8,19 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-# Inherit some common OrionOS stuff.
-$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+# Inherit some common Infinity-X stuff.
+$(call inherit-product, vendor/infinity/config/common_full_phone.mk)
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 720
 
-# OrionOS flags
-ORION_MAINTAINER := attack_dns24
-ORION_MAINTAINER_LINK := t.me/attack_dns24
-ORION_GAPPS := true
-ORION_BUILD_GOOGLE_TELEPHONY := true
-TARGET_ENABLE_BLUR := false
+# Infinity-X Specific Flags
+INFINITY_BUILD_TYPE := UNOFFICIAL
+INFINITY_MAINTAINER := attack_dns24
+WITH_GAPPS := true
+TARGET_BUILD_GOOGLE_TELEPHONY := true
+TARGET_SUPPORTS_BLUR := false
+USE_MOTO_CALCULATOR := true
 
 # Inherit from S666LN device
 $(call inherit-product, device/itel/S666LN/device.mk)
