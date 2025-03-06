@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/infinity_S666LN.mk
+    $(LOCAL_DIR)/arrow_S666LN.mk

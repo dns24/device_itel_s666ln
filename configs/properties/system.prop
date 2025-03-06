@@ -1,9 +1,7 @@
 # About Phone
-ro.infinity.soc=Mediatek G99 Ultimate
-ro.infinity.battery=5000 mAh
-ro.infinity.display=720 x 1612, 120 Hz
-ro.infinity.camera=50 + 8MP
-ro.product.marketname=Itel RS4
+ro.device.chipset=Mediatek G99 Ultimate
+ro.device.display_resolution=6.56" IPS LCD 720x1612
+ro.device.colorbody_phone=Lurex Black
 
 # AEE
 ro.vendor.have_aee_feature=1
